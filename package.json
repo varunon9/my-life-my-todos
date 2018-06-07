@@ -18,7 +18,8 @@
     "reactjs",
     "desktop-app",
     "task-manager",
-    "todoapp"
+    "todoapp",
+    "semantic-ui-react"
   ],
   "author": "Varun Kumar <varunon9@gmail.com>",
   "license": "MIT",
@@ -33,8 +34,14 @@
   },
   "chromium-args": "--enable-logging=stderr",
   "dependencies": {
+    "flux": "^3.1.3",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-autobind": "^1.0.6",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2",
+    "s": "^0.1.1",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.81.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

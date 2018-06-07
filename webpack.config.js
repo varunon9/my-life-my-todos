@@ -24,9 +24,8 @@ module.exports = {
       include: SOURCE_PATH
     },
     {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader',
-      include: SOURCE_PATH
+      test: /\.(png|woff|woff2|eot|ttf|svg|gif|jpg)$/,
+      loader: 'url-loader?limit=100000'
     }]
   }
 };
