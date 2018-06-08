@@ -9,6 +9,20 @@ class HeaderActions {
             payload: item 
         });
     }
+
+    changeTheme(theme) {
+        Dispatcher.dispatch({
+            actionType: ActionTypes.CHANGE_THEME,
+            payload: theme 
+        });
+    }
+
+    changeView(view) {
+        Dispatcher.dispatch({
+            actionType: ActionTypes.CHANGE_VIEW,
+            payload: view 
+        });
+    }
 }
 
 export default new HeaderActions();
