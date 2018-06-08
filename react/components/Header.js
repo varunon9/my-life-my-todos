@@ -1,6 +1,6 @@
 import React from "react";
 import autoBind from 'react-autobind';
-import { Input, Menu } from "semantic-ui-react";
+import { Input, Menu, Dropdown, Icon } from "semantic-ui-react";
 
 import HeaderActions from '../actions/HeaderActions';
 import HeaderStore from '../stores/HeaderStore';
@@ -31,15 +31,15 @@ class Header extends React.Component {
 
     render() {
     	return (
-    		<Menu secondary>
+    		<Menu primary="true">
 		        <Menu.Item 
 	                name="tasks" 
-	                active={this.state.activeItem === "tasks"} 
+	                active={this.state.activeItem === 'tasks'}
 	                onClick={this.handleItemClick} 
 		        />
 		        <Menu.Item
 	                name="analytics"
-	                active={this.state.activeItem === "analytics"}
+	                active={this.state.activeItem === 'analytics'}
 	                onClick={this.handleItemClick}
 		        />
 		        
@@ -47,9 +47,29 @@ class Header extends React.Component {
 	                <Menu.Item>
 	                    <Input icon="search" placeholder="Search..." />
 	                </Menu.Item>
+					<Dropdown item 
+					        name="settings"
+							active="{this.state.activeItem === 'settings'}"
+							onClick={this.handleItemClick}
+					        text="Settings">
+                        <Dropdown.Menu>
+							<Dropdown.Item 
+								text="Theme" 
+								name="theme"
+								active={this.state.activeItem === 'theme'}
+								onClick={this.handleItemClick}
+								icon="adjust" />
+							<Dropdown.Item 
+								text="View" 
+								name="view"
+								active={this.state.activeItem === 'view'}
+								onClick={this.handleItemClick}
+								icon="eye" />
+                        </Dropdown.Menu>
+	                </Dropdown>
 	                <Menu.Item
 	                    name="about"
-	                    active={this.state.activeItem === "about"}
+	                    active={this.state.activeItem === 'about'}
 	                    onClick={this.handleItemClick}
 	                />
 		        </Menu.Menu>

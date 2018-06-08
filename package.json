@@ -29,8 +29,8 @@
   "homepage": "https://github.com/varunon9/my-life-my-todos#readme",
   "window": {
     "toolbar": true,
-    "min_width": 500,
-    "min_height": 300
+    "min_width": 768,
+    "min_height": 425
   },
   "chromium-args": "--enable-logging=stderr",
   "dependencies": {
