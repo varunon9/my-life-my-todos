@@ -12,7 +12,8 @@ class AppStore extends EventEmitter {
         autoBind(this);
 
         this.state = {
-        	theme: 'purple-theme'
+        	theme: 'purple-theme',
+            view: 'gridView'
         };
 
         // Registers action handler with the Dispatcher.
@@ -34,6 +35,11 @@ class AppStore extends EventEmitter {
     changeTheme(theme) {
     	this.state.theme = theme;
     	this.emit(CHANGE);
+    }
+
+    changeView(theme) {
+        this.state.view = view;
+        this.emit(CHANGE);
     }
 
     // Hooks a React component's callback to the CHANGED event.

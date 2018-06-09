@@ -2,9 +2,9 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import { Container } from 'semantic-ui-react';
 
-import Header from '../components/Header';
+import Header from '../containers/Header';
 import AppRoutes from './AppRoutes';
-import HeaderActions from '../actions/HeaderActions';
+import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
 import '../scss/main.scss';
 

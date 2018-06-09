@@ -18,8 +18,7 @@ class HeaderStore extends EventEmitter {
         // Registers action handler with the Dispatcher.
         Dispatcher.register(this.registerToActions);
     }
-    // https://www.youtube.com/watch?v=PvjNglsyOHs
-    // https://code.tutsplus.com/tutorials/getting-started-with-the-flux-architecture-in-react--cms-28906
+    
     registerToActions(action) {
     	switch(action.actionType) {
     		case ActionTypes.CHANGE_MENU_ITEM: {

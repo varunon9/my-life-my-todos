@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import ListTodos from './ListTodos';
-import About from './About';
+import About from '../components/About';
 import Analytics from './Analytics';
 
 class AppRoutes extends React.Component {

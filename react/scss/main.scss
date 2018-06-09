@@ -1,6 +1,12 @@
 $purple: #925485;
+$darkPurple: #5c007a;
 $blue: #718792;
 $teal: #439889;
+$green: #388e3c;
+$darkGreen: #00600f;
+$white: #fff;
+$yellow: #f57f17;
+$darkYellow: #bc5100;
 
 .purple-theme {
 	.primary {
@@ -27,6 +33,15 @@ $teal: #439889;
 		.huge.header {
 			color: $purple !important;
 		}
+	}
+
+	.secondary.button {
+	    background: $green;
+	    color: $white;
+	}
+
+	.secondary.button:hover {
+	    background: $darkGreen;
 	}
 }
 
@@ -56,6 +71,15 @@ $teal: #439889;
 			color: $blue;
 		}
 	}
+
+	.secondary.button {
+	    background: $purple;
+	    color: $white;
+	}
+
+	.secondary.button:hover {
+	    background: $darkPurple;
+	}
 }
 
 .teal-theme {
@@ -84,4 +108,25 @@ $teal: #439889;
 			color: $teal;
 		}
 	}
+
+	.secondary.button {
+	    background: $yellow;
+	    color: $white;
+	}
+
+	.secondary.button:hover {
+	    background: $darkYellow;
+	}
+}
+
+.fixed {
+	position: fixed;
+	z-index: 2;
+	right: 0;
+	bottom: 0;
+	margin: 3em !important;
+}
+
+.ui.menu .item {
+	font-weight: bold !important;
 }
