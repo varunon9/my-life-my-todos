@@ -24,6 +24,10 @@ module.exports = {
       include: SOURCE_PATH
     },
     {
+      test:/\.(s*)css$/,
+      loaders: ['style-loader','css-loader', 'sass-loader']
+    },
+    {
       test: /\.(png|woff|woff2|eot|ttf|svg|gif|jpg)$/,
       loader: 'url-loader?limit=100000'
     }]

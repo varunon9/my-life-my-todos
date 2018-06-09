@@ -1,0 +1,87 @@
+$purple: #925485;
+$blue: #718792;
+$teal: #439889;
+
+.purple-theme {
+	.primary {
+		a.item.active,
+		a.item:hover,
+		a.item.active:hover {
+			background: $purple;
+		}
+
+		.dropdown.item.active,
+		.dropdown.item.active:hover,
+		.dropdown.item:hover {
+			background: $purple;
+		}
+
+		.dropdown.item.active {
+			.item:hover,
+			.item.active,
+			.item.active:hover {
+			    background: $purple !important;
+			}
+		}
+
+		.huge.header {
+			color: $purple !important;
+		}
+	}
+}
+
+.blue-theme {
+	.primary {
+		a.item.active,
+		a.item:hover,
+		a.item.active:hover {
+			background: $blue;
+		}
+
+		.dropdown.item.active,
+		.dropdown.item.active:hover,
+		.dropdown.item:hover {
+			background: $blue;
+		}
+
+		.dropdown.item.active {
+			.item:hover,
+			.item.active,
+			.item.active:hover {
+			    background: $blue !important;
+			}
+		}
+
+		.huge.header {
+			color: $blue;
+		}
+	}
+}
+
+.teal-theme {
+	.primary {
+		a.item.active,
+		a.item:hover,
+		a.item.active:hover {
+			background: $teal;
+		}
+
+		.dropdown.item.active,
+		.dropdown.item.active:hover,
+		.dropdown.item:hover {
+			background: $teal;
+		}
+
+		.dropdown.item.active {
+			.item:hover,
+			.item.active,
+			.item.active:hover {
+			    background: $teal !important;
+			}
+		}
+
+		.huge.header {
+			color: $teal;
+		}
+	}
+}

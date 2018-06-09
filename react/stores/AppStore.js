@@ -12,7 +12,7 @@ class AppStore extends EventEmitter {
         autoBind(this);
 
         this.state = {
-        	theme: 'purpleTheme'
+        	theme: 'purple-theme'
         };
 
         // Registers action handler with the Dispatcher.

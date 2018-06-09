@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import AppRoutes from './AppRoutes';
 import HeaderActions from '../actions/HeaderActions';
 import AppStore from '../stores/AppStore';
+import '../scss/main.scss';
 
 class App extends React.Component {
     constructor(props) {

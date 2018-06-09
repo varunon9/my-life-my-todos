@@ -74,7 +74,7 @@ class Header extends React.Component {
 												empty: true, 
 												circular: true 
 											}}
-											name="purpleTheme"
+											name="purple-theme"
 											text="Purple"  
 											onClick={this.handleThemeChange} />
 										<Dropdown.Item
@@ -83,17 +83,17 @@ class Header extends React.Component {
 												empty: true, 
 												circular: true 
 											}}
-											name="blueTheme"  
+											name="blue-theme"  
 											text="Blue"
 											onClick={this.handleThemeChange} />
 										<Dropdown.Item
 										    label={{ 
-												color: 'pink', 
+												color: 'teal', 
 												empty: true, 
 												circular: true 
 											}}
-											name="pinkTheme"
-											text="Pink" 
+											name="teal-theme"
+											text="Teal" 
 											onClick={this.handleThemeChange} />
 										<Dropdown.Item
 										    label={{ 
@@ -101,7 +101,7 @@ class Header extends React.Component {
 												empty: true, 
 												circular: true 
 											}}
-											name="defaultTheme"
+											name="default-theme"
 											text="Default" 
 											onClick={this.handleThemeChange} />
 									</Dropdown.Menu>
