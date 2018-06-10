@@ -14,7 +14,15 @@ class ListTodos extends React.Component {
 
         this.state = {
             tasks: DataStore.getTasks(),
-            view: AppStore.getCurrentState().view
+            view: AppStore.getCurrentState().view,
+            newTask: this.getInitialNewTask()
+        }
+    }
+
+    getInitialNewTask() {
+        return {
+            title: '',
+            items: ['']
         }
     }
 
@@ -40,12 +48,56 @@ class ListTodos extends React.Component {
         AppStore.removeChangeListener(this.onViewChange);
     }
 
+    updateNewTaskTitle(e) {
+        let newTask = Object.assign({}, this.state.newTask); // copy object
+        newTask.title = e.target.value;
+        this.setState({
+            newTask
+        });
+    }
+
+    updateNewTaskItem(e, index) {
+        let newTask = Object.assign({}, this.state.newTask); // copy object
+        newTask.items = newTask.items.concat(); // copy array
+        newTask.items[index] = e.target.value;
+        this.setState({
+            newTask
+        });
+    }
+
+    addNewTaskItem(e) {
+        if (e.key === 'Enter') {
+            let newTask = Object.assign({}, this.state.newTask); // copy object
+            newTask.items = newTask.items.concat(); // copy array
+            newTask.items.push('');
+            this.setState({
+                newTask
+            });
+        }
+    }
+
+    addNewTask() {
+        // notifying store
+        AppActions.taskAdded(this.state.newTask);
+
+        // reinitializing new task
+        this.setState({
+            newTask: this.getInitialNewTask()
+        });
+    }
+
+
     render() {
         const gridView = (
             <Card.Group>
                 {
-                    this.state.tasks.map((task, index) => {
-                        return <TaskCardView task={task} />
+                    this.state.tasks.map((task) => {
+                        return (
+                            <TaskCardView 
+                                task={task} 
+                                key={task._id}
+                            />
+                        )
                     })
                 }
             </Card.Group>
@@ -71,31 +123,32 @@ class ListTodos extends React.Component {
                         <Form>
                             <Form.Field>
                                 <label>Title</label>
-                                <input placeholder="Your task title" />
+                                <input placeholder="Your task title" 
+                                    onBlur={this.updateNewTaskTitle}
+                                    defaultValue={this.state.newTask.title}
+                                />
                             </Form.Field>
                             <p>Keep adding task items by pressing enter</p>
-                            <Form.Field>
-                                <input />
-                            </Form.Field>
-                            <Form.Field>
-                                <input />
-                            </Form.Field>
-                            <Form.Field>
-                                <input />
-                            </Form.Field>
-                            <Form.Field>
-                                <input />
-                            </Form.Field>
-                            <Form.Field>
-                                <input />
-                            </Form.Field>
-                            <Form.Field>
-                                <input />
-                            </Form.Field>
+                            {
+                                this.state.newTask.items.map((item, index) => {
+                                    return (
+                                        <Form.Field key={index}>
+                                            <input 
+                                                onKeyDown={this.addNewTaskItem} 
+                                                onBlur={(e) => {
+                                                    this.updateNewTaskItem(e, index)
+                                                }} 
+                                                autoFocus
+                                                defaultValue={item}
+                                            />
+                                        </Form.Field>
+                                    )
+                                })
+                            }
                         </Form>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color="green">
+                        <Button color="green" onClick={this.addNewTask}>
                             <Icon name="checkmark" /> Done
                         </Button>
                     </Modal.Actions>

@@ -24,10 +24,24 @@ class AppActions {
         });
     }
 
-    tasksUpdated(tasks) {
+    taskAdded(task) {
         Dispatcher.dispatch({
-            actionType: ActionTypes.TASKS_UPDATED,
-            payload: tasks 
+            actionType: ActionTypes.TASK_ADDED,
+            payload: task
+        });
+    }
+
+    taskUpdated(task) {
+        Dispatcher.dispatch({
+            actionType: ActionTypes.TASK_UPDATED,
+            payload: task
+        });
+    }
+
+    taskRemoved(task) {
+        Dispatcher.dispatch({
+            actionType: ActionTypes.TASK_REMOVED,
+            payload: task
         });
     }
 }

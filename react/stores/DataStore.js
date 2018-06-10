@@ -12,8 +12,9 @@ class DataStore extends EventEmitter {
         autoBind(this);
 
         this.state = {
-        	tasks: globals.dbMethods.fetchData(globals.constants.collections.TASKS)
         };
+
+        this.fetchTasksFromDb();
 
         // Registers action handler with the Dispatcher.
         Dispatcher.register(this.registerToActions);
@@ -21,19 +22,41 @@ class DataStore extends EventEmitter {
 
     registerToActions(action) {
     	switch(action.actionType) {
-    		case ActionTypes.TASKS_UPDATED: {
-    			this.tasksUpdated(action.payload);
+    		case ActionTypes.TASK_ADDED: {
+    			this.taskAdded(action.payload);
     		}
     	}
+    }
+
+    fetchTasksFromDb() {
+        this.state.tasks = 
+                globals.dbMethods.fetchData(globals.constants.collections.TASKS);
     }
 
     getTasks() {
     	return this.state.tasks;
     }
 
-    tasksUpdated(tasks) {
-    	this.state.tasks = tasks;
-    	this.emit(CHANGE);
+    taskAdded(task) {
+        // adding task to db
+        globals.dbMethods.addData(globals.constants.collections.TASKS, task);
+
+        this.fetchTasksFromDb();
+        this.emit(CHANGE);
+    }
+
+    taskUpdated(task) {
+        // updating task to db
+
+        this.fetchTasksFromDb();
+        this.emit(CHANGE);
+    }
+
+    taskRemoved(task) {
+        // removing task from db
+
+        this.fetchTasksFromDb();
+        this.emit(CHANGE);
     }
 
     // Hooks a React component's callback to the CHANGED event.

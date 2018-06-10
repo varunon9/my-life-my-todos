@@ -7,8 +7,8 @@ const globals = {
 	},
 
 	dbMethods: {
-		saveData: (collectionName, dataArray) => {
-			return globals.db[collectionName].save(dataArray);
+		addData: (collectionName, dataArrayOrObject) => {
+			return globals.db[collectionName].save(dataArrayOrObject);
 		},
 
 		fetchData: (collectionName, queryObject) => {
