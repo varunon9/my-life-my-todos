@@ -11,7 +11,7 @@ A todo (task management) desktop app built using node-webkit (nw.js), react.js, 
 
 ### Screenshots
 |  |  |
-| --- | --- |
+|![Tasks Screen](./screenshots/tasks.png) | ![Add New Task](./screenshots/add-new-task.png)|
 |![About Screen](./screenshots/about.png) | ![Theme Settings](./screenshots/theme-settings.png)|
 
 

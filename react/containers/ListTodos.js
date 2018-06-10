@@ -24,7 +24,12 @@ class ListTodos extends React.Component {
     getInitialNewTask() {
         return {
             title: '',
-            items: ['']
+            items: [
+                {
+                    todo: '',
+                    completed: false
+                }
+            ]
         }
     }
 
@@ -61,7 +66,7 @@ class ListTodos extends React.Component {
     updateNewTaskItem(e, index) {
         let newTask = Object.assign({}, this.state.newTask); // copy object
         newTask.items = newTask.items.concat(); // copy array
-        newTask.items[index] = e.target.value;
+        newTask.items[index].todo = e.target.value;
         this.setState({
             newTask
         });
@@ -71,7 +76,10 @@ class ListTodos extends React.Component {
         if (e.key === 'Enter') {
             let newTask = Object.assign({}, this.state.newTask); // copy object
             newTask.items = newTask.items.concat(); // copy array
-            newTask.items.push('');
+            newTask.items.push({
+                todo: '',
+                completed: false
+            });
             this.setState({
                 newTask
             });
@@ -89,6 +97,15 @@ class ListTodos extends React.Component {
         });
     }
 
+    removeTask(task) {
+        AppActions.taskRemoved(task);
+    }
+
+    updateTask(task, itemIndex, completed) {
+        task.items[itemIndex].completed = completed;
+        AppActions.taskUpdated(task);
+    }
+
 
     render() {
         const gridView = (
@@ -99,6 +116,8 @@ class ListTodos extends React.Component {
                             <TaskCardView 
                                 task={task} 
                                 key={task._id}
+                                removeTask={this.removeTask}
+                                updateTask={this.updateTask}
                             />
                         )
                     })

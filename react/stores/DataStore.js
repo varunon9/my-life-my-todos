@@ -24,7 +24,18 @@ class DataStore extends EventEmitter {
     	switch(action.actionType) {
     		case ActionTypes.TASK_ADDED: {
     			this.taskAdded(action.payload);
+                break;
     		}
+
+            case ActionTypes.TASK_REMOVED: {
+                this.taskRemoved(action.payload);
+                break;
+            }
+
+            case ActionTypes.TASK_UPDATED: {
+                this.taskUpdated(action.payload);
+                break;
+            }
     	}
     }
 
@@ -47,6 +58,10 @@ class DataStore extends EventEmitter {
 
     taskUpdated(task) {
         // updating task to db
+        globals.dbMethods
+                .updateData(globals.constants.collections.TASKS, {
+                    _id: task._id
+                }, task);
 
         this.fetchTasksFromDb();
         this.emit(CHANGE);
@@ -54,6 +69,10 @@ class DataStore extends EventEmitter {
 
     taskRemoved(task) {
         // removing task from db
+        globals.dbMethods
+                .removeData(globals.constants.collections.TASKS, {
+                    _id: task._id
+                });
 
         this.fetchTasksFromDb();
         this.emit(CHANGE);

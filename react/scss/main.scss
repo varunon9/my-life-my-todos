@@ -33,6 +33,22 @@ $darkYellow: #bc5100;
 		.huge.header {
 			color: $purple !important;
 		}
+
+		.task-card {
+		    .header {
+		        color: $purple !important;
+
+		        button {
+		            color: $purple;
+		        }
+		    }
+
+		    .description {
+		        label {
+		            color: $purple;
+		        }
+		    }
+		}
 	}
 
 	.secondary.button {
@@ -69,6 +85,22 @@ $darkYellow: #bc5100;
 
 		.huge.header {
 			color: $blue;
+		}
+
+		.task-card {
+		    .header {
+		        color: $blue !important;
+
+		        button {
+		            color: $blue;
+		        }
+		    }
+
+		    .description {
+		        label {
+		            color: $blue;
+		        }
+		    }
 		}
 	}
 
@@ -107,6 +139,22 @@ $darkYellow: #bc5100;
 		.huge.header {
 			color: $teal;
 		}
+
+		.task-card {
+		    .header {
+		        color: $teal !important;
+
+		        button {
+		            color: $teal;
+		        }
+		    }
+
+		    .description {
+		        label {
+		            color: $teal;
+		        }
+		    }
+		}
 	}
 
 	.secondary.button {
@@ -129,4 +177,8 @@ $darkYellow: #bc5100;
 
 .ui.menu .item {
 	font-weight: bold !important;
+}
+
+.line-through {
+	text-decoration: line-through;
 }

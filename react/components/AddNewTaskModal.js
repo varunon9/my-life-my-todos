@@ -25,7 +25,7 @@ const AddNewTaskModal = (props) => {
 		                                    props.updateNewTaskItem(e, index)
 		                                }} 
 		                                autoFocus
-		                                defaultValue={item}
+		                                defaultValue={item.todo}
 		                            />
 		                        </Form.Field>
 		                    )

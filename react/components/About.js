@@ -10,7 +10,7 @@ const About = (props) => {
                 My Life My Todos
             </Header>
             <Header size="tiny">
-                A personal task manager app built using nw.js
+                A personal task manager desktop app built using nw.js
             </Header>
             <p>Major dependencies-</p>
             <ul>
