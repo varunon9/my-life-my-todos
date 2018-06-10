@@ -6,6 +6,7 @@ import AppActions from '../actions/AppActions';
 import DataStore from '../stores/DataStore';
 import AppStore from '../stores/AppStore';
 import TaskCardView from '../components/TaskCardView';
+import AddNewTaskModal from '../components/AddNewTaskModal';
 
 class ListTodos extends React.Component {
     constructor(props) {
@@ -15,7 +16,8 @@ class ListTodos extends React.Component {
         this.state = {
             tasks: DataStore.getTasks(),
             view: AppStore.getCurrentState().view,
-            newTask: this.getInitialNewTask()
+            newTask: this.getInitialNewTask(),
+            showAddNewTaskModal: false
         }
     }
 
@@ -82,7 +84,8 @@ class ListTodos extends React.Component {
 
         // reinitializing new task
         this.setState({
-            newTask: this.getInitialNewTask()
+            newTask: this.getInitialNewTask(),
+            showAddNewTaskModal: false
         });
     }
 
@@ -110,49 +113,29 @@ class ListTodos extends React.Component {
                         gridView
                     }
                 </Segment>
-                <Modal trigger={
-                            <Button 
-                                className="secondary fixed" 
-                                circular
-                                icon="plus" 
-                            />
-                        }
-                        closeIcon>
-                    <Header icon="add" content="Add a new task" />
-                    <Modal.Content scrolling>
-                        <Form>
-                            <Form.Field>
-                                <label>Title</label>
-                                <input placeholder="Your task title" 
-                                    onBlur={this.updateNewTaskTitle}
-                                    defaultValue={this.state.newTask.title}
-                                />
-                            </Form.Field>
-                            <p>Keep adding task items by pressing enter</p>
-                            {
-                                this.state.newTask.items.map((item, index) => {
-                                    return (
-                                        <Form.Field key={index}>
-                                            <input 
-                                                onKeyDown={this.addNewTaskItem} 
-                                                onBlur={(e) => {
-                                                    this.updateNewTaskItem(e, index)
-                                                }} 
-                                                autoFocus
-                                                defaultValue={item}
-                                            />
-                                        </Form.Field>
-                                    )
-                                })
-                            }
-                        </Form>
-                    </Modal.Content>
-                    <Modal.Actions>
-                        <Button color="green" onClick={this.addNewTask}>
-                            <Icon name="checkmark" /> Done
-                        </Button>
-                    </Modal.Actions>
-                </Modal>
+                <Button 
+                    className="secondary fixed" 
+                    circular
+                    icon="plus" 
+                    onClick={() => {
+                        this.setState({
+                            showAddNewTaskModal: true
+                        });
+                    }}
+                />
+                <AddNewTaskModal 
+                    showAddNewTaskModal={this.state.showAddNewTaskModal}
+                    updateNewTaskTitle={this.updateNewTaskTitle}
+                    newTask={this.state.newTask}
+                    addNewTaskItem={this.addNewTaskItem}
+                    updateNewTaskItem={this.updateNewTaskItem}
+                    addNewTask={this.addNewTask}
+                    closeAddNewTaskModal={() => {
+                        this.setState({
+                            showAddNewTaskModal: false
+                        });
+                    }}
+                />
             </div>
         )
     }

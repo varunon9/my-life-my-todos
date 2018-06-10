@@ -5,7 +5,7 @@ const TaskCardView = (props) => {
     return (
     	<Card>
     	    <Card.Content>
-    	        <Card.Header>Jenny Lawrence</Card.Header>
+    	        <Card.Header>{props.task.title}</Card.Header>
     	    </Card.Content>
     	</Card>
     )
